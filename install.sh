@@ -73,6 +73,5 @@ ln -s ~/dotfiles/.aliases ~/.aliases
 
 echo "💣 Now zsh install all 🍓 plugins."
 
-zsh
-
+reload
 echo "💣 🔪🔪🔪 Done. Enjoy that."
