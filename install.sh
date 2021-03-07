@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "🎁 Installing deps, tools & core apps"
 # brew bundle
 #sudo spctl --master-disable
@@ -12,8 +14,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   # we're on linux
   sudo apt-get install zsh
 fi
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
@@ -60,7 +60,7 @@ ln -s ~/dotfiles/zsh/zsh_aliases.zsh ~/.zsh_aliases
 ln -s ~/dotfiles/zsh/zsh_functions.zsh ~/.zsh_functions
 ln -s ~/dotfiles/powerlevel9k/theme.zsh ~/.powerlevel9k
 
-ln -s ~/.zgen_setup ~/dotfiles/zsh/zgen_setup.zsh
+ln -s ~/dotfiles/zsh/zgen_setup.zsh ~/.zgen_setup 
 # ln -s ~/dotfiles/vimrc.js/vimrc /.vimrc
 # ln -s ~/dotfiles/vimrc.js ~/.vimrc.js
 # ln -s ~/dotfiles/.bashrc ~/.bashrc

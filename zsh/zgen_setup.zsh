@@ -14,7 +14,7 @@ source $ZGEN_PARENT_DIR/.zgen/zgen.zsh
 unset ZGEN_PARENT_DIR
 
 load-starter-plugin-list() {
-  echo "Creating a zgen save"
+  echo "💾 Creating a zgen save"
   ZGEN_LOADED=()
   ZGEN_COMPLETIONS=()
 
@@ -24,6 +24,9 @@ load-starter-plugin-list() {
   bindkey "$terminfo[kcuu1]" history-substring-search-up
   bindkey "$terminfo[kcud1]" history-substring-search-down
 
+
+  echo "🔌 Zsh plugins oh my~!"
+  zgen load bhilburn/powerlevel9k powerlevel9k
   # zgen oh-my-zsh plugins/colorize
   # zgen oh-my-zsh plugins/command-not-found
   # zzgen oh-my-zsh plugins/git
