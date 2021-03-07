@@ -29,7 +29,6 @@ load-starter-plugin-list() {
   zgen load bhilburn/powerlevel9k powerlevel9k
   # zgen oh-my-zsh plugins/colorize
   # zgen oh-my-zsh plugins/command-not-found
-  # zzgen oh-my-zsh plugins/git
   # zzgen oh-my-zsh plugins/github
   # zgen oh-my-zsh plugins/pip
   # zgen oh-my-zsh plugins/node
