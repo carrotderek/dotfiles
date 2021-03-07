@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias reload="source~/.zshrc"
+alias reload="source ~/.zshrc"
 
 # Why would I ever do this?
 if [[ "$(uname -s)" == "Darwin" ]]; then
@@ -93,11 +93,5 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias path="echo -e ${PATH//:/\\n}"
-
-# Honor old .zsh_aliases.local customizations, but print depecation warning.
-if [ -f ~/.zsh_aliases.local ]; then
-  source ~/.zsh_aliases.local
-  echo ".zsh_aliases.local is deprecated. Make entries in files in ~/.zshrc.d instead."
-fi
 
 alias weather="curl -4 http://wttr.in/Calgary"

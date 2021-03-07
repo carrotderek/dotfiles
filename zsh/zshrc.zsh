@@ -7,7 +7,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 TERM="xterm-256color"
 
-source "${HOME}/.zgen/zgen.zsh"
+source "${HOME}/.zgen_setup"
 
 if [[ -r ~/.powerlevel9k_font_mode ]]; then
   POWERLEVEL9K_MODE=$(head -1 ~/.powerlevel9k_font_mode)
@@ -20,10 +20,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
-
-if [ -r ~/.sh_aliases ]; then
-  source ~/.sh_aliases
-fi
 
 # Stuff only tested on zsh, or explicitly zsh-specific
 if [ -r ~/.zsh_aliases ]; then
@@ -61,7 +57,6 @@ GIT_UNPUSHED="⇡"
 
 YARN_ENABLED=true
 # eval $(dircolors -b $HOME/.dircolors)
-bash ~/dotfiles/zsh/powerlevel9k/theme.zsh
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
