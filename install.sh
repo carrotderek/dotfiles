@@ -16,8 +16,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 fi
 
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
 
 echo "🎁 Setting up shell enviroment."
 
