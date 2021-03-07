@@ -72,6 +72,6 @@ ln -s ~/dotfiles/zsh/zgen_setup.zsh ~/.zgen_setup
 ln -s ~/dotfiles/.aliases ~/.aliases
 
 echo "💣 Now zsh install all 🍓 plugins."
+zsh
 
-reload
 echo "💣 🔪🔪🔪 Done. Enjoy that."
