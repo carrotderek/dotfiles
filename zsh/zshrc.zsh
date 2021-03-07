@@ -48,7 +48,7 @@ if [ -d ~/.zsh-completions ]; then
   done
 fi
 
-source "${HOME}/.dotfiles/zsh/powerlevel9k/theme.zsh"
+source "${HOME}/dotfiles/zsh/powerlevel9k/theme.zsh"
 
 GIT_UNCOMMITTED="+"
 GIT_UNSTAGED="!"
@@ -61,7 +61,7 @@ GIT_UNPUSHED="⇡"
 
 YARN_ENABLED=true
 # eval $(dircolors -b $HOME/.dircolors)
-bash ~/.dotfiles/zsh/powerlevel9k/theme.zsh
+bash ~/dotfiles/zsh/powerlevel9k/theme.zsh
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm

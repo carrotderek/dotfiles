@@ -46,20 +46,20 @@ echo "🍆 Setting up Everything."
 echo "👉👈 Linking all your configs with ${HOMEWORLD}"
 
 ln -s ~/dotfiles/zsh/zshrc.zsh ~/.zshrc
-ln -s ~/.dotfiles/zsh/zsh_aliases.zsh ~/.zsh_aliases
-ln -s ~/.dotfiles/zsh/zsh_functions.zsh ~/.zsh_functions
-ln -s ~/.dotfiles/powerlevel9k/theme.zsh ~/.powerlevel9k
+ln -s ~/dotfiles/zsh/zsh_aliases.zsh ~/.zsh_aliases
+ln -s ~/dotfiles/zsh/zsh_functions.zsh ~/.zsh_functions
+ln -s ~/dotfiles/powerlevel9k/theme.zsh ~/.powerlevel9k
 
-ln -s ~/.zgen_setup ~/.dotfiles/zsh/zgen_setup.zsh
-# ln -s ~/.dotfiles/vimrc.js/vimrc /.vimrc
-# ln -s ~/.dotfiles/vimrc.js ~/.vimrc.js
-# ln -s ~/.dotfiles/.bashrc ~/.bashrc
-# ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
-# ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
-# ln -s ~/.dotfiles/.exports ~/.exports
-# ln -s ~/.dotfiles/.inputrc ~/.inputrc
-# ln -s ~/.dotfiles/.screenrc ~/.screenrc
-ln -s ~/.dotfiles/.aliases ~/.aliases
+ln -s ~/.zgen_setup ~/dotfiles/zsh/zgen_setup.zsh
+# ln -s ~/dotfiles/vimrc.js/vimrc /.vimrc
+# ln -s ~/dotfiles/vimrc.js ~/.vimrc.js
+# ln -s ~/dotfiles/.bashrc ~/.bashrc
+# ln -s ~/dotfiles/.bash_profile ~/.bash_profile
+# ln -s ~/dotfiles/.bash_prompt ~/.bash_prompt
+# ln -s ~/dotfiles/.exports ~/.exports
+# ln -s ~/dotfiles/.inputrc ~/.inputrc
+# ln -s ~/dotfiles/.screenrc ~/.screenrc
+ln -s ~/dotfiles/.aliases ~/.aliases
 
 echo "💣 Enjoy that. Now zsh install all 🍓 plugins."
 

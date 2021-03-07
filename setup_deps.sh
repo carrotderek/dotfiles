@@ -2,6 +2,7 @@
 if [[ "$(uname -s)" == "Darwin" ]]; then
   # do OS X specific things
   brew install zsh
+fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   # we're on linux
