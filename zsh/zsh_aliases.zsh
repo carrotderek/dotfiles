@@ -1,6 +1,17 @@
 #!/bin/bash
 
 alias reload="source ~/.zshrc"
+alias fuck="rm -rf"
+alias _="sudo"
+
+# Help the lazy typists again.
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+alias path="echo -e ${PATH//:/\\n}"
 
 # Why would I ever do this?
 if [[ "$(uname -s)" == "Darwin" ]]; then
@@ -75,7 +86,6 @@ alias tartvzf="tar tvzf"
 alias tarxvf="tar xvf"
 
 # Deal with various stupidities.
-
 if [ -x /usr/bin/vagrant ]; then
   alias vagrant="/usr/bin/vagrant"
 fi
@@ -89,9 +99,5 @@ if [ -x /usr/local/bin/mysql/bin/mysqladmin ]; then
   alias mysqladmin="/usr/local/mysql/bin/mysqladmin"
 fi
 
-# Help the lazy typists again.
-alias ..="cd .."
-alias ...="cd ../.."
-alias path="echo -e ${PATH//:/\\n}"
 
 alias weather="curl -4 http://wttr.in/Calgary"
