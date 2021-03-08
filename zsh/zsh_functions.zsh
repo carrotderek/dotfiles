@@ -2,7 +2,6 @@ function exists() {
   if (( $+commands[$1] )); then return 0; else return 1; fi
 }
 
-# from cads@ooyala.com
 function ff() {
   find . -type f -iname '*'$@'*' -ls
 }
@@ -40,11 +39,6 @@ man() {
 # From commandlinefu.com
 function watch() { t=$1; shift; while test :; do clear; date=$(date); echo -e "Every $ts: $@ \t\t\t\t $date"; $@; sleep $t; done }
 
-# scp file to machine you're sshing into this machine from
-function mecp () {
-  scp "$@" ${SSH_CLIENT%% *}:~/Downloads/;
-}
-
 function calc() {
   awk "BEGIN{ print $* }" ;
 }
@@ -54,43 +48,6 @@ function procs_for_path() {
   do
     ps -f -p $pid
   done
-}
-
-# Begin sysadvent2011 functions
-function _awk_col() {
-  echo "$1" | egrep -v '^[0-9]+$' || echo "\$$1"
-}
-
-function sum() {
-  [ "${1#-F}" != "$1" ] && SP=${1} && shift
-  [ "$#" -eq 0 ] && set -- 0
-  key="$(_awk_col "$1")"
-  awk $SP "{ x+=$key } END { printf(\"%d\n\", x) }"
-}
-
-function sumby() {
-  [ "${1#-F}" != "$1" ] && SP=${1} && shift
-  [ "$#" -lt 0 ] && set -- 0 1
-  key="$(_awk_col "$1")"
-  val="$(_awk_col "$2")"
-  awk $SP "{ a[$key] += $val } END { for (i in a) { printf(\"%d %s\\n\", a[i], i) } }"
-}
-
-function countby() {
-  [ "${1#-F}" != "$1" ] && SP=${1} && shift
-  [ "$#" -eq 0 ] && set -- 0
-  key="$(_awk_col "$1")"
-  awk $SP "{ a[$key]++ } END { for (i in a) { printf(\"%d %s\\n\", a[i], i) } }"
-}
-# end sysadvent
-
-# ssh helper
-function rmhost () {
-  perl -i -ne "print unless $1 .. $1" ~/.ssh/known_hosts;
-}
-
-get_nr_jobs() {
-  jobs | wc -l
 }
 
 get_load() {
@@ -104,19 +61,6 @@ function bash_repeat() {
   do
       "$@"
   done
-}
-
-function authme {
-  ssh "$1" 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_dsa.pub
-}
-
-function mtr_url {
-  host=$(ruby -ruri -e "puts (URI.parse('$1').host or '$1')")
-  sudo mtr -t $host
-}
-
-function jsoncurl() {
-  curl "$@" | python -m json.tool
 }
 
 # Recursively touch, e.g. touch + mkdir -p
@@ -134,58 +78,10 @@ pong() {
   ping -c 10 "$@"
 }
 
-fix_tmux_ssh_agent() {
-  for key in SSH_AUTH_SOCK SSH_CONNECTION SSH_CLIENT; do
-    if (tmux show-environment | grep "^${key}" > /dev/null); then
-      value=$(tmux show-environment | grep "^${key}" | sed -e "s/^[A-Z_]*=//")
-      export ${key}="${value}"
-    fi
-  done
-}
-
 show_terminal_colors() {
   for i in {0..255} ; do
     printf "\x1b[38;5;${i}mcolour${i}\n"
   done
-}
-
-# Batch change extension from $1 to $2
-function chgext {
-  for file in *.$1
-  do
-    mv $file $(echo $file | sed "s/\(.*\.\)$1/\1$2/")
-  done
-}
-
-# Probe a /24 for hosts
-scan24() {
-  nmap -sP ${1}/24
-}
-
-# Netjoin - Block until a network connection is obtained.
-# Originally from https://github.com/bamos/dotfiles/blob/master/.funcs
-nj() {
-  while true; do
-    ping -c 1 8.8.8.8 &> /dev/null && break
-    sleep 1
-  done
-}
-
-# Pretty JSON
-# from: https://coderwall.com/p/hwu5uq?i=9&p=1&q=sort%3Ascore+desc&t%5B%5D=zsh
-function pjson {
-  if [ $# -gt 0 ];
-    then
-    for arg in $@
-    do
-      if [ -f $arg ];
-        then
-        less $arg | python -m json.tool
-      else
-        echo "$arg" | python -m json.tool
-      fi
-    done
-  fi
 }
 
 # lists zombie processes
@@ -212,9 +108,3 @@ function httpserver() {
   # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
   python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
-
-# Honor old .zsh_functions.local customizations, but print depecation warning.
-if [ -f ~/.zsh_functions.local ]; then
-  source .zsh_functions.local
-  echo ".zsh_functions.local is deprecated. Make entries in ~/.zshrc.d instead."
-fi
