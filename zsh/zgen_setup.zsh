@@ -98,7 +98,7 @@ load-starter-plugin-list() {
     if [ $(uname -a | grep -ci Darwin) = 1 ]; then
     zgen oh-my-zsh plugins/brew
     # zgen oh-my-zsh plugins/brew-cask
-    zgen oh-my-zsh plugins/osx
+    zgen oh-my-zsh plugins/macos
     zgen load mkwmms/zsh-osx
   fi
 
