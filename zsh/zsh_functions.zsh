@@ -109,7 +109,6 @@ function httpserver() {
   python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 
-
 # Shopify-specific logs
 function spinlog() {
   jc -u "proc-shopify--${1}@server.service" --follow --output cat
