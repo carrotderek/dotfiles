@@ -108,3 +108,9 @@ function httpserver() {
   # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
   python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
+
+
+# Shopify-specific logs
+function spinlog() {
+  jc -u "proc-shopify--${1}@server.service" --follow --output cat
+}

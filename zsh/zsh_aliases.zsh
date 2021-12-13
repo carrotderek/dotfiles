@@ -101,3 +101,6 @@ fi
 
 
 alias weather="curl -4 http://wttr.in/Calgary"
+
+# Shopify-specific
+alias spinst="systemctl list-dependencies spin.target"
