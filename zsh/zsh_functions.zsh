@@ -110,6 +110,6 @@ function httpserver() {
 }
 
 # Shopify-specific logs
-function spinlog() {
-  jc -u "proc-shopify--${1}@server.service" --follow --output cat
+function slog() {
+  journalctl -u "proc-shopify--${1}@server.service" --follow --output cat
 }
